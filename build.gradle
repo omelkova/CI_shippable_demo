@@ -9,6 +9,7 @@ dependencies {
 }
 
 test {
+    reports.junitXml.destination = "$buildDir/shippable/testresults"
     testLogging {
         events "passed", "skipped", "failed"
     }
