@@ -15,6 +15,6 @@ integrations:
       recipients:
         - "@svetlana"
     - integrationName: email
-          type: email
-          recipients:
-            - svetlana.omelkova+shippable@gmail.com
+      type: email
+      recipients:
+        - svetlana.omelkova+shippable@gmail.com
