@@ -14,3 +14,7 @@ integrations:
       type: slack
       recipients:
         - "@svetlana"
+    - integrationName: email
+          type: email
+          recipients:
+            - svetlana.omelkova+shippable@gmail.com
