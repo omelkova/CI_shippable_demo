@@ -7,3 +7,10 @@ build:
   ci:
    - gradle assemble
    - gradle test jacocoTestReport
+
+integrations:
+  notifications:
+    - integrationName: Slack
+      type: slack
+      recipients:
+        - "@svetlana"

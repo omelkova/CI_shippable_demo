@@ -23,10 +23,7 @@ jacoco {
 
 jacocoTestReport {
     reports {
-//        xml.destination = file("shippable/codecoverage")
-          xml.enabled=true
+        xml.enabled=true
         html.enabled=false
-//          csv.enabled=true
-//        html.destination file("$buildDir/jacocoHtml")
     }
 }
