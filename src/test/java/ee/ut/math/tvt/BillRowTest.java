@@ -23,8 +23,11 @@ public class BillRowTest {
     assertEquals(r.getRowPrice(), 0.0, 0.0001);
   }
   
-  // TODO
-  public void testRowSumWithoutDiscount() {}
+  @Test
+  public void testRowSumWithoutDiscount() {
+    BillRow r = new BillRow(item1, 1);
+    assertEquals(r.getRowPrice(), 3.5, 0.001);
+  }
 
   // TODO
   public void testRowSumWithDiscount() {}

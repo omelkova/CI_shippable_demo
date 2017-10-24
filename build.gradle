@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: "jacoco"
 
 repositories {
     mavenCentral()
@@ -12,5 +13,20 @@ test {
     reports.junitXml.destination = "shippable/testresults"
     testLogging {
         events "passed", "skipped", "failed"
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+    reportsDir = file("shippable/codecoverage")
+}
+
+jacocoTestReport {
+    reports {
+//        xml.destination = file("shippable/codecoverage")
+          xml.enabled=true
+        html.enabled=false
+//          csv.enabled=true
+//        html.destination file("$buildDir/jacocoHtml")
     }
 }

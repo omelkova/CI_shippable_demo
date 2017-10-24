@@ -6,4 +6,4 @@ jdk:
 build:
   ci:
    - gradle assemble
-   - gradle test
+   - gradle test jacocoTestRport
