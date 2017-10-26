@@ -27,7 +27,7 @@ jacoco {
 jacocoTestReport {
     reports {
         xml.enabled=true
-        html.enabled=false
+        html.enabled=true
     }
 }
 
@@ -43,8 +43,8 @@ task checkFindBugsReport << {
     slurped['BugInstance'].eachWithIndex { bug, index ->
         report += "${index + 1}. Found bug risk ${bug.@'type'} of category ${bug.@'category'} "
         report += "in the following places"
-        bug['SourceLine'].each { place ->
-            report += "\n       ${place.@'classname'} at lines ${place.@'start'}:${place.@'end'}"
+        bug['Class']['SourceLine'].each { place ->
+            report += "${place.@'classname'} at lines ${place.@'start'}:${place.@'end'}"
         }
     }
     if (report.length() > 1) {
