@@ -1,8 +1,6 @@
 apply plugin: 'java'
 apply plugin: "jacoco"
 
-apply plugin: 'findbugs'
-
 repositories {
     mavenCentral()
     jcenter()
@@ -13,43 +11,17 @@ dependencies {
 }
 
 test {
-    reports.junitXml.destination = "shippable/testresults"
     testLogging {
         events "passed", "skipped", "failed"
     }
 }
 
 jacoco {
-    toolVersion = "0.7.6.201602180812"
-    reportsDir = file("shippable/codecoverage")
+    toolVersion = "0.8.1"
 }
 
 jacocoTestReport {
     reports {
         xml.enabled=true
-        html.enabled=true
     }
 }
-
-findbugs{
-    ignoreFailures=true
-}
-
-task checkFindBugsReport << {
-    def xmlReport = findbugsMain.reports.xml
-    if (!xmlReport.destination.exists()) return;
-    def slurped = new XmlSlurper().parse(xmlReport.destination)
-    def report = ""
-    slurped['BugInstance'].eachWithIndex { bug, index ->
-        report += "${index + 1}. Found bug risk ${bug.@'type'} of category ${bug.@'category'} "
-        report += "in the following places"
-        bug['Class']['SourceLine'].each { place ->
-            report += "${place.@'classname'} at lines ${place.@'start'}:${place.@'end'}"
-        }
-    }
-    if (report.length() > 1) {
-        logger.error "[FINDBUGS]\n ${report}"
-    }
-}
-
-findbugsMain.finalizedBy checkFindBugsReport
