@@ -4,5 +4,9 @@ jdk:
   - oraclejdk8
 
 script:
-  - gradle test jacocoTestReport
-  - gradle findbugsMain
+  - gradle test 
+
+notifications:
+  email:
+    - svetlana.omelkova@gmail.com
+    - on_success: change
