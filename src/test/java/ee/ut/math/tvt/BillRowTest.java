@@ -1,6 +1,6 @@
 package ee.ut.math.tvt;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,8 +25,7 @@ public class BillRowTest {
   
   @Test
   public void testRowSumWithoutDiscount() {
-    BillRow r = new BillRow(item1, 1);
-    assertEquals(r.getRowPrice(), 3.5, 0.001);
+    assertTrue(false);
   }
 
   // TODO
