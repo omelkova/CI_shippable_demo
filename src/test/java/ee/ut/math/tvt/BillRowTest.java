@@ -25,7 +25,8 @@ public class BillRowTest {
   
   @Test
   public void testRowSumWithoutDiscount() {
-    assertTrue(false);
+    BillRow r = new BillRow(item1, 1);
+    assertEquals(r.getRowPrice(), 3.5, 0.001);
   }
 
   // TODO
