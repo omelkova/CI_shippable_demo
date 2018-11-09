@@ -12,3 +12,8 @@ script:
  - gradle test jacocoTestReport
  - JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage ./build/reports/jacoco/test/jacocoTestReport.xml --input-type jacoco
  - ./cc-test-reporter upload-coverage -r $CC_TEST_REPORTER_ID
+
+notifications:
+  email:
+    - svetlana.omelkova@gmail.com
+    - on_success: change
